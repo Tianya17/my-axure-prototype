@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Untitled Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link type="text/css" href="resources/css/reset.css" rel="Stylesheet" />
+    <link type="text/css" href="resources/css/default.css" rel="Stylesheet" />
+    <link rel='icon' type='image/svg+xml' href='resources/images/favicon_play.svg' />
+    <link rel='alternate icon' href='resources/images/favicon_play.ico' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script type="text/javascript">
+        if (location.href.toString().indexOf('file://localhost/') == 0) {
+            location.href = location.href.toString().replace('file://localhost/', 'file:///');
+        }
+    </script>
+    <!--<link type="text/css" rel="Stylesheet" href="plugins/sitemap/styles/sitemap.css" />
+    <link type="text/css" rel="Stylesheet" href="plugins/page_notes/styles/page_notes.css" />
+    <link type="text/css" rel="Stylesheet" href="plugins/debug/styles/debug.css" />
+    <link type="text/css" rel="Stylesheet" href="plugins/handoff/styles/handoff.css" />
+    <link type="text/css" rel="Stylesheet" href="plugins/handoff/styles/codemirror.css" />-->
+</head>
+<body scroll="no" class="hashover" style="overflow: hidden;">
+    <div id="topPanel">
+        <div id="interfaceControlFrame">
+            <div id="interfaceControlFrameLeft">
+                <div id="interfaceControlFrameMinimizeContainer">
+                    <a title="Collapse" id="interfaceControlFrameMinimizeButton">
+                        <div id="minimizeArrow" class="minimizeButtonHover minimizeIcon"></div>
+                        <div id="minimizeX" class="minimizeButton minimizeIcon"></div>
+                    </a>
+                </div>
+                <div id="interfaceControlFrameCloseContainer">
+                    <a title="Close" id="interfaceControlFrameCloseButton">CLOSE</a>
+                </div>
+
+                <div id="sitemapControlFrameContainer" title="Project Pages">
+                    <div id="projectControlFrameHeaderContainer">
+                        <ul id="projectControlFrameHeader"></ul>
+                    </div>
+
+                    <div id="interfacePageNameContainer">
+                        <div id="interfacePageNameButton" class='pageNameHeader'>
+                            &nbsp;
+                        </div>
+                        <div id="interfacePageCount" class='pageCountHeader'>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="interfaceAdaptiveViewsContainer" title="Adaptive Views">
+                    <div id="interfaceAdaptiveViewsIconButton">&nbsp;</div>
+                    <div id="interfaceAdaptiveViewsButton" class='adaptiveViewHeader'>
+                        &nbsp;
+                    </div>
+                    <div id="adaptiveViewsDropdown" class="caret"></div>
+                </div>
+            </div>
+
+            <div id="interfaceControlFrameContainer">
+                <div id="handoffControlFrameHeaderContainer">
+                    <ul id="handoffControlFrameHeader"></ul>
+                </div>
+                <div id="interfaceControlFrameLogoContainer">
+                    <!--<div id="previewNotice">
+                        Local Preview
+                    </div>-->
+                </div>
+            </div>
+
+            <div id="interfaceControlFrameRight">
+                <div id="publishContainer">
+                    <a id="publishButton">Share Prototype</a>
+                </div>
+
+                <div id="scaleMenuButton" title="Zoom and Scale">
+                    <div id="scaleValue">100%</div>
+                    <div id="expandScaleArrow" class="caret"></div>
+                </div>
+
+                <div id="inspectControlFrameHeaderContainer">
+                    <ul id="inspectControlFrameHeader">
+                        <li id="overflowBtn">
+                            <a id="overflowMenuButton" title="Options"></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="separatorContainer">
+                    <div class="separator"></div>
+                </div>
+
+                <div id="overflowMadeWith"><a href="https://www.axure.com" id="axureLogo" target="_blank"></a></div>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="popupContainer">
+        <div id='interfaceAdaptiveViewsListContainer'>
+        </div>
+
+        <div id='interfaceScaleListContainer'>
+        </div>
+
+        <div id='overflowMenuContainer'>
+        </div>
+
+        <div id='scaleMenuContainer'>
+        </div>
+    </div>
+    <div id="outerContainer">
+        <div id="clippingBounds">
+            <div id="clippingBoundsScrollContainer"></div>
+        </div>
+
+        <div id="mHideSidebar"></div>
+        <div id="lsplitbar" class="splitbar"></div>
+        <div id="mainPanel">
+            <div id="mainPanelContainer" style="position: relative; width:100%; height: 100%;">
+                <div id="clipFrameScroll" style="position: relative; width:100%; height: 100%; background-color: #ffffff;">
+                    <iframe id="mainFrame" name="mainFrame" width="100%" height="100%" src="about:blank" frameborder="0" style="display: block;position:absolute;" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id="rsplitbar" class="splitbar"></div>
+    </div>
+
+    <div id="maximizePanelContainer" class="maximizePanelContainer">
+        <div id="maximizePanelOver">
+            <div id="maximizePanel" title="Expand" class="maximizePanelOver">
+                <div id="maximizeButton" class="maximizeButton maximizeIcon"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobileControlFrameContainer"></div>
+
+<!-- 11.0.0.4122 -->
+<script src="resources/scripts/jquery-3.7.1.min.js"></script>
+<script src="resources/scripts/axure/jquery.nicescroll.min.js"></script>
+<script src="resources/scripts/axutils.js"></script>
+<script src="resources/scripts/messagecenter.js"></script>
+<script src="resources/scripts/player/axplayer.js"></script>
+<script src="resources/scripts/player/init.js"></script>
+<script>
+// 定义目标点（按顺序）
+// lat = 纬度, lng = 经度, page = 要跳转的页面
+const checkpoints = [
+    { lat: 31.2304, lng: 121.4737, radius: 300, page: "page2.html" }, // 位置A -> page2
+    { lat: 31.2200, lng: 121.4800, radius: 300, page: "page4.html" }  // 位置B -> page4
+];
+
+// 当前进度索引（从0开始）
+let currentIndex = 0;
+
+// 计算两点间的距离（米）
+function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371000;
+    const toRad = x => x * Math.PI / 180;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat / 2) ** 2 +
+              Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+              Math.sin(dLon / 2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+// 定位并检查当前点
+function checkLocation() {
+    if (!navigator.geolocation) {
+        alert("浏览器不支持GPS定位");
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(pos => {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+
+        console.log("当前位置：", lat, lng);
+
+        // 获取当前目标点
+        if (currentIndex < checkpoints.length) {
+            const target = checkpoints[currentIndex];
+            const distance = getDistance(lat, lng, target.lat, target.lng);
+
+            console.log("距离目标点：", distance, "米");
+
+            if (distance <= target.radius) {
+                // ✅ 到达目标点，跳转
+                window.location.href = target.page;
+
+                // 更新到下一个目标点（防止重复跳转）
+                currentIndex++;
+            }
+        }
+    }, err => {
+        console.error("定位失败：", err);
+    });
+}
+
+// 页面加载后，每隔 5 秒检测一次
+window.onload = () => {
+    setInterval(checkLocation, 5000);
+};
+</script>
+
+
+</body>
+</html>
