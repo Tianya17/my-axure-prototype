@@ -1,0 +1,106 @@
+/* 设置网页背景图 */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    background-image: url('images/望湖楼.jpg');  /* 设置背景图 */
+    background-size: cover;                  /* 使背景图充满整个屏幕 */
+    background-position: center;             /* 背景图居中 */
+    background-attachment: fixed;            /* 背景图固定 */
+    color: #000;                             /* 改变文本颜色，确保在有背景图时可见 */
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 36px;
+}
+
+p {
+    font-size: 20px;
+    color: #000;  /* 文字颜色改为白色，确保在背景上清晰可见 */
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(204, 204, 204, 0.8);  /* 设置透明度的卡片背景 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: transparent;
+    cursor: pointer;
+    transition: transform 0.3s;
+    transform: scale(1);
+    border-radius: 8px;
+}
+
+.card.flipped {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    font-size: 16px;
+}
+
+.card.matched {
+    background-color: #4CAF50;
+    color: white;
+    cursor: default;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+.card:hover {
+    background-color: rgba(221, 221, 221, 0.8);
+}
+
+/* 对话框样式 */
+.dialog {
+    display: none; /* 隐藏对话框 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);  /* 对话框背景稍微透明 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 60%;
+    max-width: 500px;
+}
+
+textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#feedback {
+    margin-top: 10px;
+    font-size: 18px;
+    color: red;
+}

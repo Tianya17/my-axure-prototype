@@ -1,0 +1,106 @@
+/* 设置页面基本样式 */
+body {
+    font-family: "Arial", sans-serif;
+    background-image: url('images/三潭印月.jpg'); /* 替换为你自己的背景图片URL */
+    background-size: cover;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* 标题样式 */
+h1 {
+    color: white;
+    margin-top: 20px;
+    font-size: 36px;
+}
+
+/* 游戏容器的布局 */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* 拖拽词语容器样式 */
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* 拖拽词语的样式 */
+.word {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    width: 150px;
+    text-align: center;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+/* 悬停词语时的效果 */
+.word:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* 答题框容器 */
+.drop-zones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* 拖拽区域的样式 */
+.drop-zone {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+    border: 2px dashed #ccc;
+    line-height: 50px;
+    font-size: 24px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: background-color 0.3s;
+}
+
+/* 当拖拽目标区域被拖拽项覆盖时，改变颜色 */
+.drop-zone.over {
+    background-color: rgba(100, 255, 100, 0.6);
+}
+
+/* 当拖拽完成且正确时，目标区域变为绿色 */
+.drop-zone.correct {
+    background-color: rgba(100, 255, 100, 1);
+}
+
+/* 拖拽的词语被放到正确位置时，背景颜色变为绿色 */
+.word.correct {
+    background-color: rgba(100, 255, 100, 1);
+}
+
+/* 提示框的样式 */
+.success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(0, 128, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    display: none; /* 默认隐藏 */
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快问快答 - 西湖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>快问快答 - 西湖</h1>
+        <div class="timer-container">
+            <span>剩余时间: <span id="timer">20</span>秒</span>
+        </div>
+        <div class="question-container" id="question-container">
+            <!-- 问题和选项会被动态加载到这里 -->
+        </div>
+        <div class="buttons-container">
+            <button id="next-btn" onclick="nextQuestion()" style="display: none;">下一题</button>
+            <button id="submit-btn" onclick="submitQuiz()" style="display: none;">提交</button>
+        </div>
+        <div class="score-container" id="score-container" style="display: none;">
+            <h2>得分: <span id="score">0</span> / 5</h2>
+        </div>
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <p id="modal-text"></p>
+            <button onclick="closeModal()">关闭</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诗词消消乐</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #left-section {
+            margin-right: 20px;
+        }
+        #game-board {
+            display: grid;
+            grid-gap: 5px;
+            margin-top: 20px;
+        }
+        .tile {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            background-color: lightgray;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .selected {
+            background-color: lightblue;
+        }
+        #display {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #success-message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: green;
+            display: none;
+        }
+        #poem-hint {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        #difficulty-select {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div id="left-section" style="display: flex; align-items: center; height: 100vh;">
+    <img id="poem-image" src="https://save-1326271137.cos.ap-shanghai.myqcloud.com/undefinedpic1.jpg" alt="诗词图片" style="width: 500px; height: auto;">
+</div>
+       <div>
+        <h1>《晓初净慈寺送林子方》</h1>
+        <div id="poem-hint"></div>
+        <div id="display">修复诗句: </div>
+        <select id="difficulty-select">
+            <option value="8">8x8 难度</option>
+            <option value="4">4x4 难度</option>
+        </select>
+        <div id="game-board"></div>
+        <div id="success-message">恭喜你，成功啦！</div>
+    </div>
+
+    <script>
+        const fullPoem = "毕竟西湖六月中，风光不与四时同。接天莲叶无穷碧，映日荷花别样红。";
+        const missingLine = "接天莲叶无穷碧";
+        const characters = missingLine.split("");
+        const extraChars = "春夏秋冬风花雪月山川江湖天下花鸟虫鱼琴棋书画诗词歌赋明清汉唐宋元周秦".split("");
+        let currentSelection = [];
+        let boardSize = 8; // 默认8x8
+
+        const gameBoard = document.getElementById('game-board');
+        const display = document.getElementById('display');
+        const successMessage = document.getElementById('success-message');
+        const difficultySelect = document.getElementById('difficulty-select');
+        const poemHintElement = document.getElementById('poem-hint');
+
+        // 初始化提示诗句
+        function initializePoemHint() {
+            const hint = fullPoem.replace(missingLine, "______");
+            poemHintElement.textContent = hint;
+        }
+
+        // 更新游戏难度
+        difficultySelect.addEventListener('change', () => {
+            boardSize = parseInt(difficultySelect.value);
+            resetGame();
+        });
+
+        // 创建游戏格子
+        function createBoard() {
+            gameBoard.style.gridTemplateColumns = `repeat(${boardSize}, 50px)`;
+            const tiles = [];
+
+            // 插入目标诗句的字符
+            characters.forEach(char => tiles.push(char));
+
+            // 填充随机干扰汉字
+            while (tiles.length < boardSize * boardSize) {
+                const randomChar = extraChars[Math.floor(Math.random() * extraChars.length)];
+                if (!characters.includes(randomChar)) {
+                    tiles.push(randomChar);
+                }
+            }
+
+            // 随机打乱字符顺序
+            tiles.sort(() => Math.random() - 0.5);
+
+            // 渲染游戏板
+            gameBoard.innerHTML = ""; // 清空
+            tiles.forEach(char => {
+                const tile = document.createElement('div');
+                tile.classList.add('tile');
+                tile.textContent = char;
+                tile.dataset.char = char;
+                tile.addEventListener('click', handleTileClick);
+                gameBoard.appendChild(tile);
+            });
+        }
+
+        // 处理点击事件
+        function handleTileClick(event) {
+            const clickedTile = event.target;
+            const char = clickedTile.dataset.char;
+
+            if (clickedTile.classList.contains('selected')) {
+                // 如果重复点击，退回一步
+                clickedTile.classList.remove('selected');
+                currentSelection.pop();
+            } else {
+                // 正常选择字符
+                clickedTile.classList.add('selected');
+                currentSelection.push(char);
+            }
+
+            // 更新显示框
+            display.textContent = `选中字: ${currentSelection.join("")}`;
+
+            // 更新提示句子
+            updatePoemHint();
+
+            // 检查是否成功
+            checkSuccess();
+        }
+
+        // 更新提示句子
+        function updatePoemHint() {
+            const filledPoem = fullPoem.replace(missingLine, currentSelection.join(""));
+            poemHintElement.textContent = filledPoem;
+        }
+
+        // 检查是否成功完成
+        function checkSuccess() {
+            if (currentSelection.join("") === missingLine) {
+                successMessage.style.display = 'block';
+            } else {
+                successMessage.style.display = 'none';
+            }
+        }
+
+        // 重置游戏
+        function resetGame() {
+            currentSelection = [];
+            display.textContent = "修复诗句： ";
+            initializePoemHint();
+            successMessage.style.display = 'none';
+            createBoard();
+        }
+
+        initializePoemHint();
+        resetGame();
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻牌记忆游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>记忆诗句游戏</h1>
+    <p>请匹配诗句中的关键词！</p>
+    <div class="game-board">
+        <!-- 卡片区域 -->
+        <div class="card" data-card="黑云"></div>
+        <div class="card" data-card="白雨"></div>
+        <div class="card" data-card="山"></div>
+        <div class="card" data-card="船"></div>
+        <div class="card" data-card="风"></div>
+        <div class="card" data-card="望湖楼"></div>
+        <div class="card" data-card="水"></div>
+        <div class="card" data-card="黑云"></div>
+        <div class="card" data-card="白雨"></div>
+        <div class="card" data-card="山"></div>
+        <div class="card" data-card="船"></div>
+        <div class="card" data-card="风"></div>
+        <div class="card" data-card="望湖楼"></div>
+        <div class="card" data-card="水"></div>
+    </div>
+
+    <!-- 输入答案的对话框 -->
+    <div id="answer-dialog" class="dialog">
+        <h2>请输入完整的诗句：</h2>
+        <p>将匹配的诗句碎片组成完整的诗句：</p>
+        <p id="poem-pieces">
+            黑云  白雨  山  船  风  望湖楼  水
+        </p>
+        <textarea id="user-answer" placeholder="请输入完整的诗句..." rows="4" cols="50"></textarea><br>
+        <button id="submit-answer">提交答案</button>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

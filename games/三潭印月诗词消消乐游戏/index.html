@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诗词消消乐</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>诗词消消乐：还原诗句</h1>
+
+    <div class="container">
+        <!-- 词语部分 -->
+        <div class="words" id="words">
+            <div class="word" draggable="true" id="word1">天上</div>
+            <div class="word" draggable="true" id="word2">一轮</div>
+            <div class="word" draggable="true" id="word3">月</div>
+            <div class="word" draggable="true" id="word4">湖中</div>
+            <div class="word" draggable="true" id="word5">影</div>
+            <div class="word" draggable="true" id="word6">成</div>
+            <div class="word" draggable="true" id="word7">三</div>
+        </div>
+
+        <!-- 答题框部分 -->
+        <div class="drop-zones">
+            <div class="drop-zone" id="zone1" data-order="1"></div>
+            <div class="drop-zone" id="zone2" data-order="2"></div>
+            <div class="drop-zone" id="zone3" data-order="3"></div>
+            <div class="drop-zone" id="zone4" data-order="4"></div>
+            <div class="drop-zone" id="zone5" data-order="5"></div>
+            <div class="drop-zone" id="zone6" data-order="6"></div>
+            <div class="drop-zone" id="zone7" data-order="7"></div>
+        </div>
+    </div>
+
+    <!-- 提示框 -->
+    <div id="success-message" class="success-message">
+        完全正确太棒了！
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

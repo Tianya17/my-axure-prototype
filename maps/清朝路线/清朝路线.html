@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>西湖十景-清朝</title>
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="https://cache.amap.com/lbs/static/es5.min.js"></script>
+<style type="text/css">
+.amap-marker-label{
+    width: 60px;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    height: 18px;
+    font-family: STLiti;
+    color: green;
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.4);
+    border: solid 2px rgba(100,255,200,0.8);
+}
+</style>
+  <script type="text/javascript" src="../清朝路线/tiantan_v2.js"></script>
+<script src="https://webapi.amap.com/maps?v=2.0&key=ebb9b3f2537318036110ea60b6fab2c0&plugin=AMap.ElasticMarker"></script>
+</head>
+<body>
+<div id="container" ></div>
+<script>
+    //缩放地图看看！！！
+    var map = new AMap.Map('container', {
+        viewMode: '3D',
+        turboMode: false,
+        showIndoorMap: false,
+        defaultCursor: 'pointer',
+        showBuildingBlock: false,
+        zooms: [14, 20],
+        showLabel: false,
+        zoom: 15,
+        pitch: 55,
+        rotation: -45,
+        center: [120.145315,30.239254],
+        forceVector: true,
+    });
+    var facilities = [];
+    var zoomStyleMapping1 = {
+        14: 0,
+        15: 0,
+        16: 0,
+        17: 0,
+        18: 0,
+        19: 0,
+        20: 0
+    };
+    for (var i = 0; i < sheshi.length; i += 1) {
+        var marker = new AMap.ElasticMarker({
+            position: sheshi[i].position,
+            zooms: [14, 20],
+            styles: [{
+                icon: {
+                    img: sheshi[i].icon,
+                    size: [16, 16],//可见区域的大小
+                    anchor: 'bottom-center',//锚点
+                    fitZoom: 14,//最合适的级别
+                    scaleFactor: 2,//地图放大一级的缩放比例系数
+                    maxScale: 1.4,//最大放大比例
+                    minScale: 0.8//最小放大比例
+                }
+            }],
+            zoomStyleMapping: zoomStyleMapping1
+        })
+        facilities.push(marker);
+    }
+    map.add(facilities);
+
+    var spots = [];
+    var zoomStyleMapping2 = {
+        14: 0,
+        15: 0,
+        16: 1,
+        17: 1,
+        18: 1,
+        19: 1,
+        20: 1
+    }
+    for (var i = 0; i < touristSpots.length; i += 1) {
+        var marker = new AMap.ElasticMarker({
+            position: touristSpots[i].position,
+            zooms: [14, 20],
+            styles: [{
+                icon: {
+                    img: touristSpots[i].smallIcon,
+                    size: [16, 16],//可见区域的大小
+                    anchor: 'bottom-center',//锚点
+                    fitZoom: 14,//最合适的级别
+                    scaleFactor: 2,//地图放大一级的缩放比例系数
+                    maxScale: 2,//最大放大比例
+                    minScale: 1//最小放大比例
+                },
+                label: {
+                    content: touristSpots[i].name,
+                    position: 'BM',
+                    minZoom: 15
+                }
+            }, {
+                icon: {
+                    img: touristSpots[i].bigIcon,
+                    size: touristSpots[i].size,
+                    anchor: touristSpots[i].anchor,
+                    fitZoom: 17.5,
+                    scaleFactor: 2,
+                    maxScale: 2,
+                    minScale: 0.125
+                },
+                label: {
+                    content: touristSpots[i].name,
+                    position: 'BM'
+                }
+            }],
+            zoomStyleMapping: zoomStyleMapping2
+        })
+        spots.push(marker);
+    }
+    map.add(spots);
+
+
+
+    new AMap.Polygon({
+        cursor: 'pointer',
+        bubble: true,
+        path: [[120.156389,30.240784], [120.148935,30.231761], [120.148623,30.226615], [120.139067,30.230291], [120.145315,30.239254], [120.137829,30.244447], [120.132049,30.249307], [120.129617,30.244998], [120.146137,30.252867], [120.151435,30.25866] ],
+        map: map,
+        fillOpacity: 0.3,
+        strokeWeight: 1,
+        fillColor: 'green'
+
+    });
+
+
+    var path = [
+      [120.156389,30.240784], 
+      [120.148935,30.231761], 
+      [120.148623,30.226615], 
+      [120.139067,30.230291], 
+      [120.145315,30.239254], 
+      [120.137829,30.244447], 
+      [120.132049,30.249307], 
+      [120.129617,30.244998], 
+      [120.146137,30.252867],
+      [120.151435,30.25866]
+    ];
+  var path2 = [
+    [
+      [120.156389,30.240784], 
+      [120.148935,30.231761], 
+      [120.148623,30.226615], 
+      [120.139067,30.230291], 
+      [120.145315,30.239254], 
+      [120.137829,30.244447], 
+      [120.132049,30.249307], 
+      [120.129617,30.244998], 
+      [120.146137,30.252867],
+      [120.151435,30.25866]
+      
+    ]
+  ]
+
+
+ 
+    
+    var polyline = new AMap.Polyline({
+      path: path,
+      isOutline: true,
+      outlineColor: '#ffeeff',
+      borderWeight: 3,
+      strokeColor: "#3377FF",
+      strokeOpacity: 1,
+      strokeWeight: 6,
+      // 折线样式还支持 'dashed'
+      strokeStyle: "solid",
+      // strokeStyle是dashed时有效
+      strokeDasharray: [10, 5],
+      lineJoin: 'round',
+      lineCap: 'round',
+      zIndex: 50,
+    })
+
+    var polyline2 = new AMap.Polyline({
+      path: path2,
+      isOutline: true,
+      outlineColor: '#ffeeff',
+      borderWeight: 3,
+      strokeColor: "#4488ff",
+      strokeOpacity: 1,
+      strokeWeight: 6,
+      // 折线样式还支持 'dashed'
+      strokeStyle: "dashed",
+      // strokeStyle是dashed时有效
+      strokeDasharray: [15, 5],
+      lineJoin: 'round',
+      lineCap: 'round',
+      zIndex: 50,
+    })
+    
+
+    map.add([polyline,polyline2]);
+ //   map.setFitView();
+  </script>
+  
+</body>
+</html>
